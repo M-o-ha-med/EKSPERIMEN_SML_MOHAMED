@@ -2,7 +2,7 @@ import pandas as pd
 import os
 
 current_path = os.getcwd()
-
+print(current_path)
 
 def remove_outlier(df : pd.DataFrame , col : str):
   Q1 = df[col].quantile(0.25)
@@ -31,6 +31,7 @@ def preprocessing(filepath):
 
 preprocessing('house_prices_dataset.csv')
     
+
 
 
 
