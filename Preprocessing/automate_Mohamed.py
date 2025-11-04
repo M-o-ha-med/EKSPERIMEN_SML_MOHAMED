@@ -15,21 +15,24 @@ def remove_outlier(df : pd.DataFrame , col : str):
   return df[~((df[col] < lower) | (df[col] > upper))]
 
 def preprocessing(filepath):
+    current_path = os.getcwd()
     df = pd.read_csv(filepath)
+    
     if df.duplicated().sum() >= 1 :
         df.drop_duplicates()
-        
-    if df.isna().sum() >= 1:
-        df.dropna()
-        
-    for col in df.columns:
-        if df[col].dtypes == 'int64' or df[col].dtypes == 'float64':
-            df[col].remove_outlier(df,col)
     
-    return df.to_csv(f'{current_path}/clean_dataset.csv')
+    for col in df.columns:
+        if df[col].isna().sum():
+            df[col].dropna()
+        if df[col].dtypes == 'int64' or df[col].dtypes == 'float64':
+            remove_outlier(df,col)
+    
+    return df.to_csv(f'{current_path}\clean_dataset.csv', header=False, index=False)
+
 
 preprocessing('house_prices_dataset.csv')
     
+
 
 
 
