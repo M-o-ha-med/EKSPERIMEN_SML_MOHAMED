@@ -1,5 +1,9 @@
 import pandas as pd
+import os
 
+current_path = os.getcwd()
+os.chdir(current_path)
+print(current_path)
 
 def remove_outlier(df : pd.DataFrame , col : str):
   Q1 = df[col].quantile(0.25)
@@ -22,9 +26,10 @@ def preprocessing(filepath):
         if df[col].dtypes == 'int64' or df[col].dtypes == 'float64':
             df[col].remove_outlier(df,col)
     
-    return df.to_csv('clean_dataset.csv')
+    return df.to_csv(f'{current_path}/clean_dataset.csv')
 
 preprocessing('house_prices_dataset.csv')
     
+
 
 
