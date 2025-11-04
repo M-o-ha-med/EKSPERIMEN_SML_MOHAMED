@@ -25,6 +25,6 @@ jobs:
         # Run automation preprocessing script
       - name: Run automation_preprocessing.py
         run: 
-          python python automation_preprocessinng.py
+          python Preprocessing/automation_preprocessinng.py
           
           
