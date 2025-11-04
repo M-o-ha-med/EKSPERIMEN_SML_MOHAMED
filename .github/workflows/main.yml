@@ -30,7 +30,7 @@ jobs:
         # Push the preprocessed dataset to the repo
       - name : Push preprocessed dataset 
         run : |
-          git add clean dataset.csv
+          git add clean_dataset.csv
           git commit -m "Push preprocessed dataset to repo"
           git push
           
