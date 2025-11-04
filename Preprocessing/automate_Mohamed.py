@@ -24,4 +24,6 @@ def preprocessing(filepath):
     
     return df.to_csv('clean_dataset.csv')
 
+preprocessing('../house_prices_dataset.csv')
     
+
