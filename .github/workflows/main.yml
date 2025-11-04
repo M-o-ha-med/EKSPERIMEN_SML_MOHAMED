@@ -5,6 +5,9 @@ on:
 env:
   DATASET_URL : 'house_prices_dataset.csv'
 
+permissions:
+  contents: write 
+
 jobs:
   build:
     runs-on: ubuntu-latest
