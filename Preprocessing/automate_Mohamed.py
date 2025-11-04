@@ -27,11 +27,12 @@ def preprocessing(filepath):
         if df[col].dtypes == 'int64' or df[col].dtypes == 'float64':
             remove_outlier(df,col)
     
-    return df.to_csv(f'{current_path}\clean_dataset.csv', header=False, index=False)
+    return df.to_csv(f'{current_path}/clean_dataset.csv', header=False, index=False)
 
 
 preprocessing('house_prices_dataset.csv')
     
+
 
 
 
