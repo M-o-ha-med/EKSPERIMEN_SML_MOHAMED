@@ -26,5 +26,13 @@ jobs:
       - name: Run automation_preprocessing.py
         run: 
           python Preprocessing/automate_Mohamed.py
+
+        # Push the preprocessed dataset to the repo
+      - name : Push preprocessed dataset 
+        run :
+          git add clean dataset.csv
+          git commit -m "Push preprocessed dataset to repo"
+          git push
+          
           
           
