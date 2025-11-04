@@ -35,7 +35,7 @@ jobs:
         run : |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add Preprocesing/clean_dataset.csv
+          git add Preprocessing/clean_dataset.csv
           git commit -m "Push preprocessed dataset to repo"
           git push
           
