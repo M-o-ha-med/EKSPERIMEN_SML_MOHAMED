@@ -1,8 +1,6 @@
 import pandas as pd
 import os
 
-current_path = os.getcwd()
-print(current_path)
 
 def remove_outlier(df : pd.DataFrame , col : str):
   Q1 = df[col].quantile(0.25)
@@ -14,7 +12,8 @@ def remove_outlier(df : pd.DataFrame , col : str):
   return df[~((df[col] < lower) | (df[col] > upper))]
 
 def preprocessing(filepath):
-    current_path = os.getcwd()
+    script_dir = os.path.dirname(__file__)
+    output_path = os.path.join(script_dir, 'clean_dataset.csv')
     df = pd.read_csv(filepath)
     
     if df.duplicated().sum() >= 1 :
@@ -26,11 +25,12 @@ def preprocessing(filepath):
         if df[col].dtypes == 'int64' or df[col].dtypes == 'float64':
             remove_outlier(df,col)
     
-    return df.to_csv(f'{current_path}/Preprocessing/clean_dataset.csv', header=True, index=False)
+    return df.to_csv(output_path, header=True, index=False)
 
 
 preprocessing('house_prices_dataset.csv')
     
+
 
 
 
