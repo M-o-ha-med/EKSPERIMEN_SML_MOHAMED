@@ -12,7 +12,6 @@ def remove_outlier(df : pd.DataFrame , col : str):
 
 def preprocessing(filepath):
     df = pd.read_csv(filepath)
-    
     if df.duplicated().sum() >= 1 :
         df.drop_duplicates()
         
@@ -24,4 +23,5 @@ def preprocessing(filepath):
             df[col].remove_outlier(df,col)
     
     return df.to_csv('clean_dataset.csv')
+
     
